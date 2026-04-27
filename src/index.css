@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === The Final Touch — Design System ===
+   All colors HSL. Warm beige + sage green, luxury craftsmanship aesthetic. */
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 36 30% 95%;            /* #f7f3ee warm beige */
+    --surface: 36 36% 98%;               /* #fcfaf7 cream */
+    --foreground: 60 5% 18%;             /* #2f312d charcoal */
+    --soft: 80 3% 49%;                   /* #7e8078 muted */
+
+    --card: 36 36% 98%;
+    --card-foreground: 60 5% 18%;
+
+    --popover: 36 36% 98%;
+    --popover-foreground: 60 5% 18%;
+
+    /* Brand */
+    --primary: 110 9% 53%;               /* #8fa08c sage */
+    --primary-foreground: 36 36% 98%;
+    --primary-dark: 110 8% 46%;          /* #6f7f6d */
+    --primary-glow: 110 18% 68%;
+
+    --secondary: 36 22% 90%;
+    --secondary-foreground: 60 5% 18%;
+
+    --muted: 36 22% 90%;
+    --muted-foreground: 80 3% 49%;
+
+    --accent: 110 9% 53%;
+    --accent-foreground: 36 36% 98%;
+
+    --destructive: 0 65% 51%;
+    --destructive-foreground: 36 36% 98%;
+
+    --border: 33 21% 81%;                /* #d8d1c7 */
+    --input: 33 21% 81%;
+    --ring: 110 9% 53%;
+
+    --radius: 0.75rem;
+
+    /* Gradients & shadows */
+    --gradient-warm: linear-gradient(135deg, hsl(36 30% 95%), hsl(36 36% 98%));
+    --gradient-sage: linear-gradient(135deg, hsl(110 9% 53%), hsl(110 8% 46%));
+    --gradient-overlay: linear-gradient(180deg, hsl(60 5% 18% / 0.15) 0%, hsl(60 5% 18% / 0.55) 100%);
+    --gradient-fade-bottom: linear-gradient(180deg, transparent 0%, hsl(36 30% 95%) 100%);
+
+    --shadow: 0 24px 60px hsl(60 5% 18% / 0.10);
+    --shadow-soft: 0 12px 28px hsl(60 5% 18% / 0.08);
+    --shadow-lift: 0 32px 70px hsl(60 5% 18% / 0.18);
+    --shadow-inset: inset 0 1px 0 hsl(36 36% 98% / 0.6);
+
+    --transition-elegant: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --duration-base: 400ms;
+
+    --sidebar-background: 36 30% 95%;
+    --sidebar-foreground: 60 5% 18%;
+    --sidebar-primary: 110 9% 53%;
+    --sidebar-primary-foreground: 36 36% 98%;
+    --sidebar-accent: 36 22% 90%;
+    --sidebar-accent-foreground: 60 5% 18%;
+    --sidebar-border: 33 21% 81%;
+    --sidebar-ring: 110 9% 53%;
+  }
+
+  .dark {
+    --background: 60 5% 10%;
+    --foreground: 36 30% 95%;
+    --card: 60 5% 10%;
+    --card-foreground: 36 30% 95%;
+    --popover: 60 5% 10%;
+    --popover-foreground: 36 30% 95%;
+    --primary: 110 18% 68%;
+    --primary-foreground: 60 5% 10%;
+    --secondary: 60 5% 16%;
+    --secondary-foreground: 36 30% 95%;
+    --muted: 60 5% 16%;
+    --muted-foreground: 36 10% 70%;
+    --accent: 110 18% 68%;
+    --accent-foreground: 60 5% 10%;
+    --border: 60 5% 22%;
+    --input: 60 5% 22%;
+    --ring: 110 18% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Urbanist', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Urbanist', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Animated underline link */
+  .story-link {
+    @apply relative inline-block;
+  }
+  .story-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 h-px w-full origin-bottom-right scale-x-0 bg-current transition-transform duration-300;
+  }
+  .story-link:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s var(--transition-elegant), transform 0.9s var(--transition-elegant);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Hover lift card */
+  .lift {
+    transition: transform 0.5s var(--transition-elegant), box-shadow 0.5s var(--transition-elegant);
+  }
+  .lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  /* Image hover zoom wrapper */
+  .zoom-wrap {
+    @apply overflow-hidden;
+  }
+  .zoom-wrap img {
+    transition: transform 0.9s var(--transition-elegant);
+  }
+  .zoom-wrap:hover img {
+    transform: scale(1.06);
+  }
+
+  /* Floating label input */
+  .float-field {
+    @apply relative;
+  }
+  .float-field input,
+  .float-field textarea,
+  .float-field select {
+    @apply w-full bg-transparent border-0 border-b border-border px-0 pt-6 pb-2 text-foreground placeholder-transparent focus:outline-none focus:border-primary transition-colors;
+  }
+  .float-field label {
+    @apply absolute left-0 top-4 text-soft transition-all duration-300 pointer-events-none;
+  }
+  .float-field input:focus + label,
+  .float-field input:not(:placeholder-shown) + label,
+  .float-field textarea:focus + label,
+  .float-field textarea:not(:placeholder-shown) + label,
+  .float-field select:focus + label,
+  .float-field select:valid + label {
+    @apply top-0 text-xs text-primary;
+  }
+
+  .glass {
+    background: hsl(var(--surface) / 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -14,14 +14,6 @@ import t4 from "@/assets/team-4.jpg";
 import sRepair from "@/assets/service-repair.jpg";
 import sPainting from "@/assets/service-painting.jpg";
 
-const timeline = [
-  { y: "2008", t: "A workshop opens", d: "Our founder begins repairing furniture with a passion for craftsmanship." },
-  { y: "2011", t: "First major project", d: "A complete home restoration that established our reputation." },
-  { y: "2013", t: "Growing team", d: "We expanded to include specialists in finishing and deep cleaning." },
-  { y: "2018", t: "New studio", d: "We moved to our current location in East Legon." },
-  { y: "2024", t: "Looking forward", d: "Continuing to serve homes across Accra with care and dedication." },
-];
-
 const values = [
   { i: Heart, t: "Care", d: "Every piece is treated as if it belonged to one of us." },
   { i: Hammer, t: "Craft", d: "Slow, patient work — done by hand, where it matters." },
@@ -32,10 +24,10 @@ const values = [
 ];
 
 const team = [
-  { src: t1, name: "Ama Owusu", role: "Founder · Restorer", years: "Since 2008", bio: "Trained in furniture conservation. Founded the studio in 2008 with the belief that things deserve to be repaired before they are replaced." },
-  { src: t2, name: "Kwasi Boateng", role: "Lead Finisher", years: "Since 2014", bio: "Expert in wood finishing with over ten years of experience. Known for precise brushwork and careful attention to detail." },
-  { src: t3, name: "Efua Mensah", role: "Color & Painting", years: "Since 2016", bio: "Develops our house palettes and consults on every interior project. Brings expertise in color theory and traditional techniques." },
-  { src: t4, name: "Kofi Addo", role: "Carpenter & Joiner", years: "Since 2019", bio: "Fifteen years of joinery experience, including restoration work on historic buildings. Believes every piece can be saved with the right care." },
+  { src: t1, name: "Ama Owusu", role: "Founder · Restorer", bio: "Trained in furniture conservation. Founded the studio with the belief that things deserve to be repaired before they are replaced." },
+  { src: t2, name: "Kwasi Boateng", role: "Lead Finisher", bio: "Expert in wood finishing with years of experience. Known for precise brushwork and careful attention to detail." },
+  { src: t3, name: "Efua Mensah", role: "Color & Painting", bio: "Develops our house palettes and consults on every interior project. Brings expertise in color theory and traditional techniques." },
+  { src: t4, name: "Kofi Addo", role: "Carpenter & Joiner", bio: "Years of joinery experience, including restoration work on historic buildings. Believes every piece can be saved with the right care." },
 ];
 
 const day = [
@@ -53,7 +45,7 @@ const press = [
 ];
 
 const certs = [
-  "Guild of Restorers · Member since 2014",
+  "Guild of Restorers · Member",
   "Atelier Network · Founding studio",
   "Slow Crafts Council · Heritage registry",
   "Low-VOC Practitioner · Certified",
@@ -86,7 +78,7 @@ export default function About() {
             A small team, <em className="text-primary-glow">a long memory.</em>
           </h1>
           <p className="mt-6 max-w-xl text-background/80 text-lg animate-fade-up">
-            Sixteen years in East Legon — restoring, finishing, and quietly
+            A small studio in East Legon — restoring, finishing, and quietly
             insisting that the things people love deserve more time.
           </p>
         </div>
@@ -127,39 +119,14 @@ export default function About() {
             <Eyebrow>From the founder</Eyebrow>
             <Quote className="w-10 h-10 text-primary mt-6" />
             <p className="font-display text-2xl md:text-3xl mt-6 leading-snug italic">
-              "When I opened this studio in 2008, I wanted to work the way I'd
+              "When I opened this studio, I wanted to work the way I'd
               been taught — slowly, with the same hands seeing a piece from
-              start to finish. Sixteen years later, that's still how we work."
+              start to finish. That's still how we work today."
             </p>
             <p className="mt-8 text-sm">
               <span className="font-medium">Ama Owusu</span>
               <span className="text-soft"> · Founder & Lead Restorer</span>
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-28">
-        <div className="container">
-          <SectionHeading align="center" eyebrow="Our story" title="Sixteen years," italic="quietly." />
-          <div className="mt-20 relative max-w-3xl mx-auto">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
-            {timeline.map((t, i) => (
-              <div
-                key={t.y}
-                className={`reveal relative grid md:grid-cols-2 gap-6 mb-14 ${i % 2 === 0 ? "" : "md:[direction:rtl]"}`}
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <div className="md:[direction:ltr] pl-12 md:pl-0 md:pr-12 md:text-right">
-                  <p className="font-display text-5xl text-primary">{t.y}</p>
-                  <p className="font-display text-2xl mt-2">{t.t}</p>
-                  <p className="text-soft mt-2">{t.d}</p>
-                </div>
-                <div className="hidden md:block" />
-                <div className="absolute left-4 md:left-1/2 top-3 -translate-x-1/2 w-3 h-3 rounded-full bg-primary ring-4 ring-background" />
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -215,8 +182,7 @@ export default function About() {
       {/* Stats */}
       <section className="py-24 bg-foreground text-background relative overflow-hidden">
         <div className="absolute -top-32 -left-20 w-[500px] h-[500px] rounded-full bg-primary/30 blur-3xl" />
-        <div className="container relative z-10 grid grid-cols-2 md:grid-cols-4 gap-10">
-          <Stat to={16} suffix=" yrs" label="In the craft" />
+        <div className="container relative z-10 grid grid-cols-2 md:grid-cols-3 gap-10">
           <Stat to={1240} label="Pieces revived" />
           <Stat to={420} label="Happy homes" />
           <Stat to={98} suffix="%" label="Returning clients" />
@@ -240,7 +206,6 @@ export default function About() {
               <div className="absolute inset-x-0 bottom-0 p-6 text-background">
                 <p className="text-[10px] tracking-[0.32em] uppercase text-background/70">{p.role}</p>
                 <p className="font-display text-2xl mt-2">{p.name}</p>
-                <p className="text-[10px] tracking-[0.28em] uppercase text-primary-glow mt-1">{p.years}</p>
                 <p className="text-sm text-background/85 mt-3 max-h-0 group-hover:max-h-48 overflow-hidden transition-all duration-500 leading-relaxed">
                   {p.bio}
                 </p>
@@ -262,12 +227,12 @@ export default function About() {
             <Eyebrow>The atelier</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl mt-5 leading-tight">
               15 Aburi Road,
-              <em className="block text-primary">since 2018.</em>
+              <em className="block text-primary">East Legon.</em>
             </h2>
             <p className="text-soft mt-6 leading-relaxed">
               A bright studio space with natural light, four
               workbenches, a finishing room, and a small library of paint
-              samples that goes back fifteen years.
+              samples.
             </p>
             <ul className="mt-8 space-y-4 text-sm">
               <li className="flex items-start gap-3"><MapPin className="w-4 h-4 mt-0.5 text-primary" /> 15 Aburi Road, East Legon, Accra</li>

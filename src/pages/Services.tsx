@@ -2,25 +2,28 @@ import SiteLayout from "@/components/site/SiteLayout";
 import { Eyebrow, SectionHeading } from "@/components/site/Section";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import {
-  Hammer, SprayCan, Brush, Sparkles, Check, ArrowRight, Play,
+  Zap, SprayCan, Brush, Sparkles, Check, ArrowRight, Play,
   Leaf, ShieldCheck, Clock, Star, PaintBucket, Wrench, Layers,
-  Sofa, DoorOpen, Wind, Quote, MapPin
+  Sofa, DoorOpen, Wind, Quote, MapPin, Droplets
 } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
-import sRepair from "@/assets/service-repair.jpg";
+import sElectric from "@/assets/service-electric.jpg";
 import sCleaning from "@/assets/service-cleaning.jpg";
 import sPainting from "@/assets/service-painting.jpg";
+// PLACEHOLDER: Replace with your plumbing service image
+// TODO: Add your personal plumbing video to the service section
+import sPlumbing from "@/assets/service-electric.jpg";
 import w1 from "@/assets/work-1.jpg";
 import w2 from "@/assets/work-2.jpg";
 import w5 from "@/assets/work-5.jpg";
 
 const services = [
   {
-    icon: Hammer,
-    title: "Repair & Restoration",
-    desc: "Careful structural repair of beloved pieces — chairs, cabinetry, wood floors, antique frames.",
-    img: sRepair,
-    bullets: ["Joinery & frame work", "Veneer & inlay rescue", "Hardware re-plating", "Period-faithful detailing"],
+    icon: Zap,
+    title: "Electrical Services",
+    desc: "Professional electrical installation and repair for homes and businesses — safe, reliable, and up to code.",
+    img: sElectric,
+    bullets: ["Wiring & rewiring", "Panel upgrades", "Lighting installation", "Fault diagnosis & repair"],
     from: "from ₵3,600",
   },
   {
@@ -39,15 +42,24 @@ const services = [
     bullets: ["Lime wash & casein", "French-polish & shellac", "Bespoke color matching", "Low-VOC formulations"],
     from: "from ₵4,800",
   },
+  {
+    icon: Droplets,
+    title: "Plumbing Services",
+    desc: "Professional plumbing solutions for homes and businesses — installation, repair, and maintenance.",
+    img: sPlumbing,
+    bullets: ["Leak detection & repair", "Pipe installation & replacement", "Fixture installation", "Drain cleaning & maintenance"],
+    from: "from ₵2,400",
+  },
 ];
 
 const subServices = [
-  { i: Sofa, t: "Antique Furniture", d: "Joinery, finish, upholstery — all under one roof." },
-  { i: DoorOpen, t: "Doors & Millwork", d: "Strip, repair, repaint — hinges and hardware tuned." },
+  { i: Zap, t: "Electrical Wiring", d: "New wiring, rewiring, and panel upgrades for homes and offices." },
+  { i: DoorOpen, t: "Lighting Installation", d: "Indoor and outdoor lighting — installed safely and beautifully." },
   { i: PaintBucket, t: "Wall & Trim", d: "Lime washes, eggshells, color drawdowns on site." },
-  { i: Wrench, t: "Hardware Restoration", d: "Brass, bronze, iron — re-plated or hand-polished." },
+  { i: Wrench, t: "Fault Diagnosis", d: "Quick identification and repair of electrical faults and issues." },
   { i: Wind, t: "Soft Furnishings", d: "Curtains, slipcovers, cushion casings, headboards." },
   { i: Layers, t: "Floor Refinishing", d: "Sand, stain, seal — historically appropriate finishes." },
+  { i: Droplets, t: "Plumbing", d: "Leak repairs, pipe work, fixture installation — done right." },
 ];
 
 const tiers = [
@@ -55,23 +67,23 @@ const tiers = [
     name: "Essential",
     price: "₵3,600",
     period: "starting",
-    tag: "For a single piece or a single room.",
-    feats: ["One-room scope", "Surface assessment", "Standard finish kit", "7-day turnaround", "30-day touch-up"],
+    tag: "For small electrical jobs or single rooms.",
+    feats: ["Single fixture or room", "Safety inspection", "Standard materials", "7-day turnaround", "30-day guarantee"],
   },
   {
     name: "Studio",
     price: "₵9,300",
     period: "starting",
-    tag: "Our most chosen — designed for whole spaces.",
-    feats: ["Multi-room scope", "Custom finish blends", "On-site consultation", "Priority scheduling", "1-year care visit", "Photography of completed work"],
+    tag: "Our most chosen — for home or office electrical work.",
+    feats: ["Multi-room scope", "Quality materials", "On-site consultation", "Priority scheduling", "1-year maintenance", "Photography of completed work"],
     featured: true,
   },
   {
     name: "Atelier",
     price: "₵22,200",
     period: "starting",
-    tag: "Concierge restoration for full homes & estates.",
-    feats: ["Full-home program", "Bespoke restorations", "Designer collaboration", "Lifetime touch-up clinic", "Concierge access", "Annual heritage report", "Dedicated project lead"],
+    tag: "Full electrical installation for homes & commercial spaces.",
+    feats: ["Full-home or office program", "Complete rewiring", "Designer collaboration", "Lifetime maintenance clinic", "Concierge access", "Annual safety report", "Dedicated project lead"],
   },
 ];
 
@@ -133,7 +145,7 @@ export default function Services() {
             Crafted services for <em className="text-primary-glow">every surface</em> you love.
           </h1>
           <p className="mt-6 max-w-xl text-background/80 text-lg animate-fade-up">
-            A small, slow menu — three disciplines we have practiced for sixteen years.
+            A small, slow menu — three disciplines we practice with care and dedication.
           </p>
         </div>
       </section>
@@ -384,18 +396,17 @@ export default function Services() {
 
       {/* Video section */}
       <section className="container py-28">
-        <div className="reveal relative aspect-[16/8] rounded-3xl overflow-hidden group cursor-pointer">
-          <img src={sRepair} alt="Inside the atelier" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-overlay" />
-          <div className="absolute inset-0 grid place-items-center">
-            <div className="grid place-items-center w-20 h-20 rounded-full bg-background/90 backdrop-blur-sm group-hover:scale-110 transition-transform">
-              <Play className="w-7 h-7 text-foreground translate-x-0.5" fill="currentColor" />
-            </div>
-          </div>
-          <div className="absolute bottom-8 left-8 right-8 text-background">
-            <p className="text-xs tracking-[0.32em] uppercase text-background/70">Inside the atelier</p>
-            <p className="font-display text-3xl md:text-4xl mt-2 max-w-xl">A morning with our restoration team.</p>
-          </div>
+        <div className="reveal relative aspect-[16/8] rounded-3xl overflow-hidden">
+          <video
+            src="/plumbing-showcase.mp4"
+            controls
+            poster={sPlumbing}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="mt-6">
+          <p className="text-xs tracking-[0.32em] uppercase text-soft">Plumbing Services</p>
+          <p className="font-display text-3xl md:text-4xl mt-2 max-w-xl">See our plumbing work in action.</p>
         </div>
       </section>
 

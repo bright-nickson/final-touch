@@ -55,7 +55,7 @@ const Index = () => {
 
         <div className="container relative z-10 pt-32 pb-20 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 animate-fade-up">
-            <Eyebrow>The Final Touch · Est. 2008</Eyebrow>
+            <Eyebrow>The Final Touch</Eyebrow>
             <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.98] mt-6">
               The quiet art of
               <em className="block text-primary">making things whole again.</em>
@@ -77,9 +77,8 @@ const Index = () => {
               </Link>
             </div>
 
-            <div className="mt-16 grid grid-cols-3 gap-8 max-w-md">
+            <div className="mt-16 grid grid-cols-2 gap-8 max-w-md">
               {[
-                { n: "16", l: "Years" },
                 { n: "1.2k", l: "Projects" },
                 { n: "98%", l: "Returning" },
               ].map((s) => (
@@ -209,7 +208,7 @@ const Index = () => {
             </p>
             <p className="mt-8 text-sm">
               <span className="font-medium">Ama Owusu</span>
-              <span className="text-background/60"> · Founder, since 2008</span>
+              <span className="text-background/60"> · Founder</span>
             </p>
             <Link to="/about" className="story-link inline-block mt-8 text-sm font-medium">
               Read our full story →

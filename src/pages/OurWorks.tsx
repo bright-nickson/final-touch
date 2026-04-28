@@ -105,7 +105,7 @@ export default function OurWorks() {
             Quiet evidence of <em className="text-primary-glow">careful hands.</em>
           </h1>
           <p className="mt-6 max-w-xl text-background/80 text-lg animate-fade-up">
-            Sixteen years of work — a small selection of the rooms, pieces and
+            A small selection of the rooms, pieces and
             details we've been trusted with.
           </p>
         </div>

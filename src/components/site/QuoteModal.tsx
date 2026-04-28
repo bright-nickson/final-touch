@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
-import { X, Hammer, SprayCan, Brush, Sparkles, ArrowRight, Check } from "lucide-react";
+import { X, Hammer, SprayCan, Brush, Sparkles, ArrowRight, Check, Droplets } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -8,6 +8,7 @@ const services = [
   { id: "repair", label: "Repair & Restore", icon: Hammer },
   { id: "clean", label: "Deep Cleaning", icon: SprayCan },
   { id: "paint", label: "Paint & Finish", icon: Brush },
+  { id: "plumbing", label: "Plumbing Services", icon: Droplets },
   { id: "polish", label: "Polish & Detail", icon: Sparkles },
 ];
 
@@ -42,7 +43,7 @@ export default function QuoteModal() {
   if (!open) return null;
 
   const estimate = data.service
-    ? (data.service === "repair" ? "₵3,600 – ₵9,300" : data.service === "clean" ? "₵1,800 – ₵5,100" : data.service === "paint" ? "₵5,700 – ₵14,700" : "₵2,700 – ₵6,600")
+    ? (data.service === "repair" ? "₵3,600 – ₵9,300" : data.service === "clean" ? "₵1,800 – ₵5,100" : data.service === "paint" ? "₵5,700 – ₵14,700" : data.service === "plumbing" ? "₵2,400 – ₵7,200" : "₵2,700 – ₵6,600")
     : "—";
 
   const next = () => setStep((s) => Math.min(s + 1, 2));
@@ -209,3 +210,4 @@ export default function QuoteModal() {
     </div>
   );
 }
+

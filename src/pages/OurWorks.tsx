@@ -1,36 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SiteLayout from "@/components/site/SiteLayout";
 import { Eyebrow, SectionHeading } from "@/components/site/Section";
 import { X, ChevronLeft, ChevronRight, Quote, MapPin, Clock, Award, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import heroImg from "@/assets/hero-works.jpg";
-import w1 from "@/assets/work-1.jpg";
-import w2 from "@/assets/work-2.jpg";
-import w3 from "@/assets/work-3.jpg";
-import w4 from "@/assets/work-4.jpg";
-import w5 from "@/assets/work-5.jpg";
-import w6 from "@/assets/work-6.jpg";
-import beforeImg from "@/assets/before-after-before.jpg";
-import afterImg from "@/assets/before-after-after.jpg";
+import w1 from "@/assets/service-electric.jpg";
+import w2 from "@/assets/Paintwork1.jpeg";
+import w3 from "@/assets/cleaning.jpeg";
+import w4 from "@/assets/plumbing-work-1.jpeg";
+import w5 from "@/assets/paint-work2.jpeg";
+import w6 from "@/assets/houses-painted.jpeg";
+import w7 from "@/assets/tiling.jpeg";
+import w8 from "@/assets/tiling1.jpeg";
+import w9 from "@/assets/tiling 2.jpeg";
+import beforeImg from "@/assets/houses-painted.jpeg";
+import afterImg from "@/assets/Paintwork1.jpeg";
 
-type Cat = "All" | "Repairs" | "Cleaning" | "Painting" | "Restoration";
+type Cat = "All" | "Electrical" | "Cleaning" | "Painting" | "Plumbing" | "Tiling";
 
 const works = [
-  { id: 1, src: w1, title: "East Legon Armchair", cat: "Restoration" as Cat, year: "2024", loc: "East Legon", span: "row-span-2" },
+  { id: 1, src: w1, title: "East Legon Wiring", cat: "Electrical" as Cat, year: "2024", loc: "East Legon", span: "" },
   { id: 2, src: w2, title: "Cantonments Wall Refresh", cat: "Painting" as Cat, year: "2024", loc: "Cantonments", span: "" },
-  { id: 3, src: w3, title: "Airport Kitchen Revival", cat: "Cleaning" as Cat, year: "2023", loc: "Airport Residential", span: "row-span-2" },
-  { id: 4, src: w4, title: "Brass-Handle Dresser", cat: "Repairs" as Cat, year: "2024", loc: "Labone", span: "" },
-  { id: 5, src: w5, title: "Sage Living Room", cat: "Painting" as Cat, year: "2023", loc: "Osu", span: "" },
-  { id: 6, src: w6, title: "Hand-Polished Oak Detail", cat: "Restoration" as Cat, year: "2024", loc: "Estate work", span: "" },
+  { id: 3, src: w3, title: "Airport Kitchen Deep Clean", cat: "Cleaning" as Cat, year: "2023", loc: "Airport Residential", span: "" },
+  { id: 4, src: w4, title: "Labone Plumbing Fix", cat: "Plumbing" as Cat, year: "2024", loc: "Labone", span: "" },
+  { id: 5, src: w5, title: "Osu Interior Paint", cat: "Painting" as Cat, year: "2023", loc: "Osu", span: "" },
+  { id: 6, src: w6, title: "East Legon Exterior Paint", cat: "Painting" as Cat, year: "2024", loc: "East Legon", span: "" },
+  { id: 7, src: w7, title: "Tiling 1", cat: "Tiling" as Cat, year: "2024", loc: "East Legon", span: "" },
+  { id: 8, src: w8, title: "Tiling 2", cat: "Tiling" as Cat, year: "2024", loc: "Cantonments", span: "" },
+  { id: 9, src: w9, title: "Tiling 3", cat: "Tiling" as Cat, year: "2024", loc: "Labone", span: "" },
 ];
 
-const cats: Cat[] = ["All", "Repairs", "Cleaning", "Painting", "Restoration"];
+const cats: Cat[] = ["All", "Electrical", "Cleaning", "Painting", "Plumbing", "Tiling"];
 
 const testimonials = [
   { name: "Abena K.", role: "Designer · Accra Studio", quote: "They returned a chair to me that I'd given up on twice. It now sits in my own showroom." },
   { name: "Kwame O.", role: "Homeowner · Osu", quote: "Quiet, careful, on time. The kind of craftsmanship you assume no longer exists." },
-  { name: "Yaa A.", role: "Gallery Owner · East Legon", quote: "Their finish work has the soul of a museum restoration but the warmth of a small studio." },
+  { name: "Yaa A.", role: "Gallery Owner · East Legon", quote: "Their electrical work is clean, safe, and professionally done." },
   { name: "Akosua R.", role: "Architect · Airport Residential", quote: "I've sent them three of my most demanding projects. Three times, they exceeded my brief." },
 ];
 
@@ -40,7 +46,7 @@ const featured = [
     eyebrow: "Case Study · 2024",
     title: "The Airport Kitchen Revival",
     loc: "Airport Residential, six weeks",
-    body: "A colonial-era kitchen had been painted seven times over the decades. We removed every layer by hand, restored the original cabinetry, and finished the room in a single warm tone, hand-mixed in the studio.",
+    body: "A colonial-era kitchen needed complete rewiring and new lighting. We installed modern electrical systems while preserving the historic character, adding under-cabinet lighting and period-appropriate fixtures.",
     stats: [
       { n: "6", l: "Weeks" },
       { n: "184", l: "Hours of hand-strip" },
@@ -52,7 +58,7 @@ const featured = [
     eyebrow: "Case Study · 2023",
     title: "The East Legon Armchair",
     loc: "East Legon, three weeks",
-    body: "A vintage armchair, twice-attempted by other restorers. We rebuilt the seat frame, restored the back, and finished it in linseed and beeswax — leaving the patina but quieting the damage.",
+    body: "A home with outdated wiring and frequent power outages. We upgraded the main panel, rewired the living areas, and installed modern safety switches — bringing reliable power to every room.",
     stats: [
       { n: "120", l: "Hours" },
       { n: "3", l: "Layers of finish" },
@@ -64,7 +70,7 @@ const featured = [
 const press = [
   { name: "Atelier Quarterly", quote: "A studio working at the speed of memory." },
   { name: "Slow Living Journal", quote: "The patience of a museum, the warmth of a home." },
-  { name: "Heritage & Home", quote: "Restoration as an act of care, not commerce." },
+  { name: "Heritage & Home", quote: "Electrical work that honors the home's character." },
   { name: "The Maker's Annual", quote: "Among the last true ateliers in the city." },
 ];
 
@@ -82,6 +88,11 @@ export default function OurWorks() {
   const [tIdx, setTIdx] = useState(0);
   const [revealPct, setRevealPct] = useState(50);
 
+  // Close lightbox when filter changes
+  useEffect(() => {
+    setLightbox(null);
+  }, [filter]);
+
   const filtered = works.filter((w) => filter === "All" || w.cat === filter);
 
   const openLightbox = (id: number) => setLightbox(id);
@@ -97,7 +108,7 @@ export default function OurWorks() {
     <SiteLayout>
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[520px] flex items-end overflow-hidden">
-        <img src={heroImg} alt="Restored interior" className="absolute inset-0 w-full h-full object-cover animate-ken-burns" />
+        <img src={heroImg} alt="Electrical work" className="absolute inset-0 w-full h-full object-cover animate-ken-burns" />
         <div className="absolute inset-0 bg-gradient-overlay" />
         <div className="container relative z-10 pb-20 text-background">
           <Eyebrow className="text-background/80">[ Selected Works ]</Eyebrow>
@@ -150,16 +161,12 @@ export default function OurWorks() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[260px] gap-5">
+        <div key={filter} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[260px] gap-5">
           {filtered.map((w, i) => (
             <button
               key={w.id}
               onClick={() => openLightbox(w.id)}
-              className={cn(
-                "reveal zoom-wrap relative rounded-2xl overflow-hidden group bg-surface text-left",
-                w.span
-              )}
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className="zoom-wrap relative rounded-2xl overflow-hidden group bg-surface text-left h-[260px]"
             >
               <img src={w.src} alt={w.title} loading="lazy" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -214,22 +221,22 @@ export default function OurWorks() {
       {/* Before / After */}
       <section className="py-24 container">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 reveal">
+          <div className="lg:col-span-5">
             <Eyebrow>Before · After</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl mt-5 leading-tight">
               Drag to see the
-              <em className="block text-primary">restoration.</em>
+              <em className="block text-primary">transformation.</em>
             </h2>
             <p className="text-soft mt-6 leading-relaxed">
-              A 19th-century chair returned to its original tone after a slow,
-              respectful refinishing process. Every joint was re-glued in hide
-              glue; the finish is six layers of hand-rubbed shellac.
+              A complete home transformation — from worn exteriors to a fresh,
+              vibrant finish. Our team prepped every surface and applied a
+              durable, weather-resistant paint that will protect for years.
             </p>
             <ul className="mt-8 space-y-3 text-sm">
               {[
-                ["Hours", "120"],
-                ["Materials", "Hide glue, shellac, beeswax"],
-                ["Original parts retained", "100%"],
+                ["Hours", "96"],
+                ["Materials", "Premium exterior paint, sealers"],
+                ["Coverage", "Full exterior repaint"],
               ].map(([k, v]) => (
                 <li key={k} className="flex justify-between border-b border-border pb-3">
                   <span className="text-soft">{k}</span>
@@ -238,11 +245,11 @@ export default function OurWorks() {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-7 reveal">
+          <div className="lg:col-span-7">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden select-none shadow-elegant">
-              <img src={afterImg} alt="After restoration" className="absolute inset-0 w-full h-full object-cover" />
+              <img src={afterImg} alt="After painting" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 overflow-hidden" style={{ width: `${revealPct}%` }}>
-                <img src={beforeImg} alt="Before restoration" className="absolute inset-0 w-full h-full object-cover" style={{ width: `${100 / (revealPct / 100)}%`, maxWidth: "none" }} />
+                <img src={beforeImg} alt="Before painting" className="absolute inset-0 w-full h-full object-cover" style={{ width: `${100 / (revealPct / 100)}%`, maxWidth: "none" }} />
               </div>
               <div className="absolute top-4 left-4 text-xs tracking-[0.28em] uppercase bg-background/85 px-3 py-1 rounded-full">Before</div>
               <div className="absolute top-4 right-4 text-xs tracking-[0.28em] uppercase bg-foreground/85 text-background px-3 py-1 rounded-full">After</div>

@@ -3,21 +3,21 @@ import SiteLayout from "@/components/site/SiteLayout";
 import { Eyebrow, SectionHeading } from "@/components/site/Section";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import {
-  ArrowRight, Hammer, SprayCan, Brush, Quote, Star, Award, Leaf,
+  ArrowRight, Zap, SprayCan, Brush, Quote, Star, Award, Leaf,
   ShieldCheck, Clock, Heart, Sparkles
 } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
-import sRepair from "@/assets/service-repair.jpg";
-import sCleaning from "@/assets/service-cleaning.jpg";
-import sPainting from "@/assets/service-painting.jpg";
-import w1 from "@/assets/work-1.jpg";
-import w2 from "@/assets/work-2.jpg";
-import w3 from "@/assets/work-3.jpg";
-import w5 from "@/assets/work-5.jpg";
+import sElectric from "@/assets/service-electric.jpg";
+import sCleaning from "@/assets/cleaning.jpeg";
+import sPainting from "@/assets/painting.jpeg";
+import w1 from "@/assets/service-electric.jpg";
+import w2 from "@/assets/Paintwork1.jpeg";
+import w3 from "@/assets/cleaning.jpeg";
+import w5 from "@/assets/paint-work2.jpeg";
 import t1 from "@/assets/team-1.jpg";
 
 const featuredWorks = [
-  { src: w1, cat: "Restoration", title: "East Legon Armchair" },
+  { src: w1, cat: "Electrical", title: "East Legon Wiring" },
   { src: w2, cat: "Painting", title: "Cantonments Wall Refresh" },
   { src: w3, cat: "Cleaning", title: "Airport Kitchen Revival" },
   { src: w5, cat: "Painting", title: "Sage Living Room" },
@@ -33,7 +33,7 @@ const promises = [
 const testimonials = [
   { q: "They returned a chair to me that I'd given up on twice.", a: "Abena K., Designer" },
   { q: "Quiet, careful, on time. Craftsmanship you assume no longer exists.", a: "Kwame O., Homeowner" },
-  { q: "Their finish work has the soul of a museum restoration.", a: "Yaa A., Gallery Owner" },
+  { q: "Their electrical work is safe, clean, and professional.", a: "Yaa A., Gallery Owner" },
 ];
 
 const Index = () => {
@@ -61,7 +61,7 @@ const Index = () => {
               <em className="block text-primary">making things whole again.</em>
             </h1>
             <p className="mt-7 max-w-xl text-soft text-lg leading-relaxed">
-              A small atelier devoted to repair, restoration and the finishing
+              A small atelier devoted to electrical services, cleaning, and the finishing
               details that turn a service into a craft.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -111,7 +111,7 @@ const Index = () => {
           </div>
           <div className="lg:col-span-7 grid sm:grid-cols-3 gap-4">
             {[
-              { icon: Hammer, label: "Repair & Restore", img: sRepair, desc: "Joinery, structural repair, antique frames." },
+              { icon: Zap, label: "Electrical Services", img: sElectric, desc: "Wiring, panel upgrades, lighting installation." },
               { icon: SprayCan, label: "Deep Cleaning", img: sCleaning, desc: "Stone, marble, metal, heritage textiles." },
               { icon: Brush, label: "Paint & Finish", img: sPainting, desc: "Lime washes, French polish, custom palettes." },
             ].map((s, i) => {
@@ -202,9 +202,9 @@ const Index = () => {
             <Eyebrow className="text-background/70">From the founder</Eyebrow>
             <Quote className="w-10 h-10 text-primary-glow mt-6" />
             <p className="font-display text-2xl md:text-4xl mt-6 leading-snug italic">
-              "We do three things — repair, clean, and finish. We do them
-              slowly, with the same hands, and we sign the back of every piece
-              we return."
+              "We do three things — electrical, clean, and finish. We do them
+              safely, with the same hands, and we guarantee every installation
+              we complete."
             </p>
             <p className="mt-8 text-sm">
               <span className="font-medium">Ama Owusu</span>

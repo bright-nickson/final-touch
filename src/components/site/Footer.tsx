@@ -11,7 +11,7 @@ export default function Footer() {
             <br /> of every well-made thing.
           </p>
           <p className="text-soft mt-6 max-w-md">
-            A small studio of restorers, painters and finishers who treat every
+            A small studio of electricians, painters and finishers who treat every
             project as a quiet act of devotion.
           </p>
         </div>

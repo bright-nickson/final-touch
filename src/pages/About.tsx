@@ -11,8 +11,10 @@ import t1 from "@/assets/team-1.jpg";
 import t2 from "@/assets/team-2.jpg";
 import t3 from "@/assets/team-3.jpg";
 import t4 from "@/assets/team-4.jpg";
-import sRepair from "@/assets/service-repair.jpg";
-import sPainting from "@/assets/service-painting.jpg";
+import sElectric from "@/assets/service-electric.jpg";
+import sCleaning from "@/assets/cleaning.jpeg";
+import sPainting from "@/assets/painting.jpeg";
+import sPlumbing from "@/assets/plumbing-hero.jpeg";
 
 const values = [
   { i: Heart, t: "Care", d: "Every piece is treated as if it belonged to one of us." },
@@ -20,20 +22,20 @@ const values = [
   { i: Leaf, t: "Restraint", d: "Minimal-impact methods, low-VOC finishes, no waste." },
   { i: ShieldCheck, t: "Honesty", d: "We say what something will cost, and we say it once." },
   { i: Users, t: "People", d: "Same hands, every visit. No subcontractors, ever." },
-  { i: Award, t: "Pride", d: "We sign the back of every restored piece." },
+  { i: Award, t: "Pride", d: "We guarantee every electrical installation." },
 ];
 
 const team = [
-  { src: t1, name: "Ama Owusu", role: "Founder · Restorer", bio: "Trained in furniture conservation. Founded the studio with the belief that things deserve to be repaired before they are replaced." },
+  { src: t1, name: "Ama Owusu", role: "Founder · Electrician", bio: "Licensed electrician with years of experience. Founded the studio with a commitment to safe, reliable electrical work for every home." },
   { src: t2, name: "Kwasi Boateng", role: "Lead Finisher", bio: "Expert in wood finishing with years of experience. Known for precise brushwork and careful attention to detail." },
   { src: t3, name: "Efua Mensah", role: "Color & Painting", bio: "Develops our house palettes and consults on every interior project. Brings expertise in color theory and traditional techniques." },
-  { src: t4, name: "Kofi Addo", role: "Carpenter & Joiner", bio: "Years of joinery experience, including restoration work on historic buildings. Believes every piece can be saved with the right care." },
+  { src: t4, name: "Kofi Addo", role: "Electrician & Installer", bio: "Years of electrical installation experience, including work on historic homes. Believes every home deserves safe, modern electrical systems." },
 ];
 
 const day = [
   { i: Sun, t: "07:30", d: "The studio opens. Kwasi arrives early to enjoy the morning quiet." },
   { i: Coffee, t: "08:00", d: "Team meeting around the workbench. Planning the day's projects and site visits." },
-  { i: Hammer, t: "09:00", d: "Work begins. Sanding, gluing, and careful restoration work." },
+  { i: Hammer, t: "09:00", d: "Work begins. Wiring, installations, and careful electrical work." },
   { i: BookOpen, t: "13:00", d: "Lunch break together. Stories shared over traditional dishes." },
   { i: Hammer, t: "14:00", d: "Site visits or finishing work. Efua tests color samples by the window." },
   { i: Sun, t: "17:30", d: "Tools put away, surfaces cleaned. Another day of careful work complete." },
@@ -45,7 +47,7 @@ const press = [
 ];
 
 const certs = [
-  "Guild of Restorers · Member",
+  "Licensed Electrical Contractors · Member",
   "Atelier Network · Founding studio",
   "Slow Crafts Council · Heritage registry",
   "Low-VOC Practitioner · Certified",
@@ -102,7 +104,7 @@ export default function About() {
             offered, and we finish each one with the kind of care it asks for.
           </p>
           <p className="font-display text-2xl text-primary italic pt-4 border-l-2 border-primary pl-6">
-            "Repair is, at its best, an act of memory."
+            "Good electrical work is, at its best, an act of safety."
           </p>
         </div>
       </section>
@@ -112,7 +114,7 @@ export default function About() {
         <div className="container grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 reveal">
             <div className="zoom-wrap aspect-[4/5] rounded-2xl overflow-hidden shadow-elegant">
-              <img src={sRepair} alt="Inside the studio" loading="lazy" className="w-full h-full object-cover" />
+              <img src={sElectric} alt="Electrical work" loading="lazy" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="lg:col-span-7 reveal">
@@ -125,7 +127,7 @@ export default function About() {
             </p>
             <p className="mt-8 text-sm">
               <span className="font-medium">Ama Owusu</span>
-              <span className="text-soft"> · Founder & Lead Restorer</span>
+              <span className="text-soft"> · Founder & Lead Electrician</span>
             </p>
           </div>
         </div>
@@ -237,7 +239,7 @@ export default function About() {
             <ul className="mt-8 space-y-4 text-sm">
               <li className="flex items-start gap-3"><MapPin className="w-4 h-4 mt-0.5 text-primary" /> 15 Aburi Road, East Legon, Accra</li>
               <li className="flex items-start gap-3"><Clock className="w-4 h-4 mt-0.5 text-primary" /> Tue – Sat, 9:00 – 17:30 · Visits by appointment</li>
-              <li className="flex items-start gap-3"><Users className="w-4 h-4 mt-0.5 text-primary" /> Four restorers, one apprentice, one studio dog</li>
+              <li className="flex items-start gap-3"><Users className="w-4 h-4 mt-0.5 text-primary" /> Four electricians, one apprentice, one studio dog</li>
             </ul>
           </div>
         </div>

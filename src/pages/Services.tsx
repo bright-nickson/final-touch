@@ -4,18 +4,17 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 import {
   Zap, SprayCan, Brush, Sparkles, Check, ArrowRight, Play,
   Leaf, ShieldCheck, Clock, Star, PaintBucket, Wrench, Layers,
-  Sofa, DoorOpen, Wind, Quote, MapPin, Droplets
+  Sofa, DoorOpen, Wind, Quote, MapPin, Droplets, Grid3X3
 } from "lucide-react";
 import heroImg from "@/assets/hero-services.jpg";
 import sElectric from "@/assets/service-electric.jpg";
-import sCleaning from "@/assets/service-cleaning.jpg";
-import sPainting from "@/assets/service-painting.jpg";
-// PLACEHOLDER: Replace with your plumbing service image
-// TODO: Add your personal plumbing video to the service section
-import sPlumbing from "@/assets/service-electric.jpg";
-import w1 from "@/assets/work-1.jpg";
-import w2 from "@/assets/work-2.jpg";
-import w5 from "@/assets/work-5.jpg";
+import sCleaning from "@/assets/cleaning.jpeg";
+import sPainting from "@/assets/painting.jpeg";
+import sPlumbing from "@/assets/plumbing-hero.jpeg";
+import sTiling from "@/assets/tiling.jpeg";
+import w1 from "@/assets/houses-painted.jpeg";
+import w2 from "@/assets/painters.jpeg";
+import w5 from "@/assets/tiling.jpeg";
 
 const services = [
   {
@@ -50,6 +49,14 @@ const services = [
     bullets: ["Leak detection & repair", "Pipe installation & replacement", "Fixture installation", "Drain cleaning & maintenance"],
     from: "from ₵2,400",
   },
+  {
+    icon: Grid3X3,
+    title: "Tiling Services",
+    desc: "Expert tile installation for floors, walls, and bathrooms — beautiful finishes that last.",
+    img: sTiling,
+    bullets: ["Floor & wall tiling", "Bathroom installations", "Tile repair & replacement", "Grouting & sealing"],
+    from: "from ₵3,000",
+  },
 ];
 
 const subServices = [
@@ -60,6 +67,7 @@ const subServices = [
   { i: Wind, t: "Soft Furnishings", d: "Curtains, slipcovers, cushion casings, headboards." },
   { i: Layers, t: "Floor Refinishing", d: "Sand, stain, seal — historically appropriate finishes." },
   { i: Droplets, t: "Plumbing", d: "Leak repairs, pipe work, fixture installation — done right." },
+  { i: Grid3X3, t: "Tiling", d: "Floor and wall tiling for kitchens, bathrooms, and living spaces." },
 ];
 
 const tiers = [
@@ -126,8 +134,8 @@ const quotes = [
 
 const sectors = [
   { src: w1, t: "Residences", d: "Homes, apartments, estates." },
-  { src: w2, t: "Boutiques", d: "Hospitality, ateliers, galleries." },
-  { src: w5, t: "Heritage", d: "Colonial buildings & historic sites." },
+  { src: w2, t: "Commercial", d: "Offices, shops, restaurants." },
+  { src: w5, t: "Renovations", d: "Full home makeovers & upgrades." },
 ];
 
 export default function Services() {
@@ -399,12 +407,13 @@ export default function Services() {
         <div className="reveal relative aspect-[16/8] rounded-3xl overflow-hidden">
           <video
             src="/plumbing-showcase.mp4"
-            controls
             poster={sPlumbing}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="mt-6">
+            controls
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            Your browser does not support the video tag.
+          </video>
           <p className="text-xs tracking-[0.32em] uppercase text-soft">Plumbing Services</p>
           <p className="font-display text-3xl md:text-4xl mt-2 max-w-xl">See our plumbing work in action.</p>
         </div>

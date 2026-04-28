@@ -14,7 +14,7 @@ import { toast } from "sonner";
 import heroImg from "@/assets/hero-booking.jpg";
 
 const faqs = [
-  { q: "What counts as a 'rework'?", a: "Anything that wasn't quite right the first time — a finish that aged unevenly, a repair that needs a second pass, or a cleaning that missed a corner. We treat reworks with the same care as the original commission." },
+  { q: "What counts as a 'rework'?", a: "Anything that wasn't quite right the first time — a finish that aged unevenly, wiring that needs adjustment, or a cleaning that missed a corner. We treat reworks with the same care as the original commission." },
   { q: "Is the visit free?", a: "Yes — we don't charge for an inspection within our service radius. We'll bring a written estimate before any work begins, and we'll never start without your approval." },
   { q: "How quickly can you come?", a: "Most rework requests are scheduled within seven days. Studio-tier and Atelier-tier clients have priority access and can usually be seen within 48 hours." },
   { q: "Do you provide your own materials?", a: "Always. We use a small, curated set of finishes, stains, oils and cleaning agents we trust. If a piece needs something unusual, we'll source it and tell you exactly where it came from." },
@@ -149,9 +149,11 @@ export default function RequestRework() {
                 <div className="float-field">
                   <select defaultValue="" required>
                     <option value="" disabled hidden></option>
-                    <option>Repair / Restoration</option>
+                    <option>Electrical Services</option>
                     <option>Deep Cleaning</option>
                     <option>Paint & Finish</option>
+                    <option>Plumbing Services</option>
+                    <option>Tiling Services</option>
                     <option>Other</option>
                   </select>
                   <label>Service type</label>

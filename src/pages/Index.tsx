@@ -19,7 +19,7 @@ import t1 from "@/assets/team-1.jpg";
 const featuredWorks = [
   { src: w1, cat: "Electrical", title: "East Legon Wiring" },
   { src: w2, cat: "Painting", title: "Cantonments Wall Refresh" },
-  { src: w3, cat: "Cleaning", title: "Airport Kitchen Revival" },
+  { src: w3, cat: "Cleaning", title: "Deep house cleaning" },
   { src: w5, cat: "Painting", title: "Sage Living Room" },
 ];
 
@@ -189,34 +189,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Founder story */}
-      <section className="py-24 bg-foreground text-background relative overflow-hidden">
-        <div className="absolute -top-32 -right-20 w-[500px] h-[500px] rounded-full bg-primary/25 blur-3xl" />
-        <div className="container relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 reveal">
-            <div className="zoom-wrap aspect-[4/5] rounded-2xl overflow-hidden">
-              <img src={t1} alt="Ama Owusu, founder" loading="lazy" className="w-full h-full object-cover" />
-            </div>
-          </div>
-          <div className="lg:col-span-7 reveal">
-            <Eyebrow className="text-background/70">From the founder</Eyebrow>
-            <Quote className="w-10 h-10 text-primary-glow mt-6" />
-            <p className="font-display text-2xl md:text-4xl mt-6 leading-snug italic">
-              "We do three things — electrical, clean, and finish. We do them
-              safely, with the same hands, and we guarantee every installation
-              we complete."
-            </p>
-            <p className="mt-8 text-sm">
-              <span className="font-medium">Ama Owusu</span>
-              <span className="text-background/60"> · Founder</span>
-            </p>
-            <Link to="/about" className="story-link inline-block mt-8 text-sm font-medium">
-              Read our full story →
-            </Link>
-          </div>
-        </div>
-      </section>
-
+  
       {/* Process strip */}
       <section className="py-28 container">
         <SectionHeading eyebrow="How we work" title="Four quiet steps" italic="from inquiry to care." />

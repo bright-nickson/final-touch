@@ -14,8 +14,6 @@ import w6 from "@/assets/houses-painted.jpeg";
 import w7 from "@/assets/tiling.jpeg";
 import w8 from "@/assets/tiling1.jpeg";
 import w9 from "@/assets/tiling 2.jpeg";
-import beforeImg from "@/assets/houses-painted.jpeg";
-import afterImg from "@/assets/Paintwork1.jpeg";
 
 type Cat = "All" | "Electrical" | "Cleaning" | "Painting" | "Plumbing" | "Tiling";
 
@@ -44,25 +42,25 @@ const featured = [
   {
     img: w3,
     eyebrow: "Case Study · 2024",
-    title: "The Airport Kitchen Revival",
-    loc: "Airport Residential, six weeks",
-    body: "A colonial-era kitchen needed complete rewiring and new lighting. We installed modern electrical systems while preserving the historic character, adding under-cabinet lighting and period-appropriate fixtures.",
+    title: "Residential Exterior Cleaning",
+    loc: "East Legon Estate, six weeks",
+    body: "A beautiful home's exterior and driveway needed restoration after months of buildup. We pressure-washed surfaces, removed all stains and grime, and restored the property's curb appeal — looking brand new.",
     stats: [
       { n: "6", l: "Weeks" },
-      { n: "184", l: "Hours of hand-strip" },
-      { n: "1", l: "Color, mixed twice" },
+      { n: "2,400", l: "Sq meters cleaned" },
+      { n: "100%", l: "Satisfaction rate" },
     ],
   },
   {
     img: w1,
     eyebrow: "Case Study · 2023",
-    title: "The East Legon Armchair",
+    title: "East Legon Electrical Upgrade",
     loc: "East Legon, three weeks",
     body: "A home with outdated wiring and frequent power outages. We upgraded the main panel, rewired the living areas, and installed modern safety switches — bringing reliable power to every room.",
     stats: [
       { n: "120", l: "Hours" },
-      { n: "3", l: "Layers of finish" },
-      { n: "0", l: "New parts" },
+      { n: "3", l: "Phases completed" },
+      { n: "0", l: "Safety incidents" },
     ],
   },
 ];
@@ -77,7 +75,7 @@ const press = [
 const stats = [
   { n: "1,240", l: "Pieces revived" },
   { n: "420", l: "Homes served" },
-  { n: "16", l: "Years in craft" },
+  { n: "3", l: "Years in craft" },
   { n: "98%", l: "Returning clients" },
 ];
 
@@ -86,7 +84,6 @@ export default function OurWorks() {
   const [filter, setFilter] = useState<Cat>("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [tIdx, setTIdx] = useState(0);
-  const [revealPct, setRevealPct] = useState(50);
 
   // Close lightbox when filter changes
   useEffect(() => {
@@ -187,7 +184,7 @@ export default function OurWorks() {
           <div className="mt-20 space-y-28">
             {featured.map((p, i) => (
               <article
-                key={p.title}
+                key={p.title} 
                 className={cn(
                   "grid lg:grid-cols-12 gap-10 items-center",
                   i % 2 === 1 && "lg:[direction:rtl]"
@@ -214,61 +211,6 @@ export default function OurWorks() {
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Before / After */}
-      <section className="py-24 container">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5">
-            <Eyebrow>Before · After</Eyebrow>
-            <h2 className="font-display text-4xl md:text-5xl mt-5 leading-tight">
-              Drag to see the
-              <em className="block text-primary">transformation.</em>
-            </h2>
-            <p className="text-soft mt-6 leading-relaxed">
-              A complete home transformation — from worn exteriors to a fresh,
-              vibrant finish. Our team prepped every surface and applied a
-              durable, weather-resistant paint that will protect for years.
-            </p>
-            <ul className="mt-8 space-y-3 text-sm">
-              {[
-                ["Hours", "96"],
-                ["Materials", "Premium exterior paint, sealers"],
-                ["Coverage", "Full exterior repaint"],
-              ].map(([k, v]) => (
-                <li key={k} className="flex justify-between border-b border-border pb-3">
-                  <span className="text-soft">{k}</span>
-                  <span className="font-medium">{v}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="lg:col-span-7">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden select-none shadow-elegant">
-              <img src={afterImg} alt="After painting" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 overflow-hidden" style={{ width: `${revealPct}%` }}>
-                <img src={beforeImg} alt="Before painting" className="absolute inset-0 w-full h-full object-cover" style={{ width: `${100 / (revealPct / 100)}%`, maxWidth: "none" }} />
-              </div>
-              <div className="absolute top-4 left-4 text-xs tracking-[0.28em] uppercase bg-background/85 px-3 py-1 rounded-full">Before</div>
-              <div className="absolute top-4 right-4 text-xs tracking-[0.28em] uppercase bg-foreground/85 text-background px-3 py-1 rounded-full">After</div>
-              <div className="absolute top-0 bottom-0 w-0.5 bg-background pointer-events-none" style={{ left: `${revealPct}%` }}>
-                <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-background grid place-items-center shadow-lift">
-                  <ChevronLeft className="w-3 h-3 -mr-1" />
-                  <ChevronRight className="w-3 h-3 -ml-1" />
-                </div>
-              </div>
-              <input
-                type="range"
-                min={0}
-                max={100}
-                value={revealPct}
-                onChange={(e) => setRevealPct(Number(e.target.value))}
-                className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
-                aria-label="Reveal slider"
-              />
-            </div>
           </div>
         </div>
       </section>

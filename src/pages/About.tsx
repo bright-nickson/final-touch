@@ -94,8 +94,7 @@ export default function About() {
         <div className="lg:col-span-7 reveal text-lg text-foreground/85 leading-relaxed space-y-5">
           <p>
             We started with the belief that the things people live with deserve
-            more attention than the throwaway pace of modern life allows. Some
-            chairs simply need new joinery. Some walls need a quieter color.
+            more attention than the throwaway pace of modern life allows. Some walls need a quieter color.
             Some rooms need to be put back the way they were.
           </p>
           <p>

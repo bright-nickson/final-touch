@@ -20,7 +20,7 @@ const services = [
   {
     icon: Zap,
     title: "Electrical Services",
-    desc: "Professional electrical installation and repair for homes and businesses — safe, reliable, and up to code.",
+    desc: "Professional electrical installation and repair for homes and businesses — safe, reliable and up to code.",
     img: sElectric,
     bullets: ["Wiring & rewiring", "Panel upgrades", "Lighting installation", "Fault diagnosis & repair"],
     from: "from ₵3,600",

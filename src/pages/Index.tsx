@@ -31,7 +31,7 @@ const promises = [
 ];
 
 const testimonials = [
-  { q: "They returned a chair to me that I'd given up on twice.", a: "Abena K., Designer" },
+  { q: "They rewired my entire house in three days. Professional from start to finish.", a: "Abena K., Designer" },
   { q: "Quiet, careful, on time. Craftsmanship you assume no longer exists.", a: "Kwame O., Homeowner" },
   { q: "Their electrical work is safe, clean, and professional.", a: "Yaa A., Gallery Owner" },
 ];

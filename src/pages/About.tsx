@@ -6,11 +6,12 @@ import {
   MapPin, Clock, ArrowRight, BookOpen, Coffee, Sun
 } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
-import heroImg from "@/assets/hero-about.jpg";
-import t1 from "@/assets/team-1.jpg";
-import t2 from "@/assets/team-2.jpg";
-import t3 from "@/assets/team-3.jpg";
-import t4 from "@/assets/team-4.jpg";
+import heroImg from "@/assets/newest-hompage.jpg";
+// Team images from Unsplash CDN - Black professionals
+const t1 = "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=800&h=1000&fit=crop&crop=faces";
+const t2 = "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=800&h=1000&fit=crop&crop=faces";
+const t3 = "https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=800&h=1000&fit=crop&crop=faces";
+const t4 = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&crop=faces";
 import sElectric from "@/assets/service-electric.jpg";
 import sCleaning from "@/assets/cleaning.jpeg";
 import sPainting from "@/assets/painting.jpeg";
@@ -27,9 +28,9 @@ const values = [
 
 const team = [
   { src: t1, name: "Ama Owusu", role: "Founder · Electrician", bio: "Licensed electrician with years of experience. Founded the studio with a commitment to safe, reliable electrical work for every home." },
-  { src: t2, name: "Kwasi Boateng", role: "Lead Finisher", bio: "Expert in wood finishing with years of experience. Known for precise brushwork and careful attention to detail." },
-  { src: t3, name: "Efua Mensah", role: "Color & Painting", bio: "Develops our house palettes and consults on every interior project. Brings expertise in color theory and traditional techniques." },
-  { src: t4, name: "Kofi Addo", role: "Electrician & Installer", bio: "Years of electrical installation experience, including work on historic homes. Believes every home deserves safe, modern electrical systems." },
+  { src: t2, name: "Kwasi Boateng", role: "Lead Technician", bio: "Expert in electrical systems with years of field experience. Known for precise workmanship and careful attention to safety." },
+  { src: t3, name: "Efua Mensah", role: "Cleaning & Project Lead", bio: "Oversees our cleaning operations and ensures every project meets our high standards. Brings expertise in quality control and client relations." },
+  { src: t4, name: "Kofi Addo", role: "Electrician & Installer", bio: "Years of electrical installation experience, including work on residential and commercial properties. Believes every home deserves safe, modern electrical systems." },
 ];
 
 const day = [

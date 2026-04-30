@@ -6,11 +6,11 @@ import {
   Leaf, ShieldCheck, Clock, Star, PaintBucket, Wrench, Layers,
   Sofa, DoorOpen, Wind, Quote, MapPin, Droplets, Grid3X3
 } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
-import sElectric from "@/assets/service-electric.jpg";
+import heroImg from "@/assets/new-homepage.jpg";
+import sElectric from "@/assets/electricals1.jpeg";
 import sCleaning from "@/assets/cleaning.jpeg";
 import sPainting from "@/assets/painting.jpeg";
-import sPlumbing from "@/assets/plumbing-hero.jpeg";
+import sPlumbing from "@/assets/plumbing3.jpeg";
 import sTiling from "@/assets/tiling.jpeg";
 import w1 from "@/assets/houses-painted.jpeg";
 import w2 from "@/assets/painters.jpeg";
@@ -243,48 +243,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-28 container">
-        <SectionHeading align="center" eyebrow="Pricing" title="Honest tiers,"  italic="no surprise lines." description="Every estimate is given in writing before any work begins. No revisions, no add-ons, no gentle surprises." />
-        <div className="mt-16 grid lg:grid-cols-3 gap-6">
-          {tiers.map((t, i) => (
-            <div
-              key={t.name}
-              className={`reveal lift rounded-2xl p-10 border relative overflow-hidden ${
-                t.featured ? "bg-foreground text-background border-foreground" : "bg-surface border-border"
-              }`}
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
-              {t.featured && (
-                <span className="absolute top-6 right-6 text-[10px] tracking-[0.28em] uppercase bg-primary text-primary-foreground px-3 py-1 rounded-full">Most chosen</span>
-              )}
-              <p className={`text-xs tracking-[0.28em] uppercase ${t.featured ? "text-background/60" : "text-soft"}`}>{t.name}</p>
-              <p className="font-display text-5xl mt-3">{t.price}</p>
-              <p className={`text-xs mt-1 ${t.featured ? "text-background/60" : "text-soft"}`}>{t.period}</p>
-              <p className={`text-sm mt-4 italic ${t.featured ? "text-background/80" : "text-foreground/70"}`}>{t.tag}</p>
-              <div className={`h-px my-7 ${t.featured ? "bg-background/15" : "bg-border"}`} />
-              <ul className="space-y-3">
-                {t.feats.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-sm">
-                    <Check className={`w-4 h-4 mt-0.5 ${t.featured ? "text-primary-glow" : "text-primary"}`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <button
-                onClick={openModal}
-                className={`mt-10 w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all hover:-translate-y-0.5 ${
-                  t.featured
-                    ? "bg-primary text-primary-foreground hover:bg-primary-dark"
-                    : "bg-foreground text-background hover:bg-primary"
-                }`}
-              >
-                Begin <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Process timeline */}
       <section className="py-24 bg-surface border-y border-border">

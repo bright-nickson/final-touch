@@ -5,15 +5,18 @@ import { X, ChevronLeft, ChevronRight, Quote, MapPin, Clock, Award, ArrowRight }
 import { cn } from "@/lib/utils";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import heroImg from "@/assets/hero-works.jpg";
-import w1 from "@/assets/service-electric.jpg";
+import w1 from "@/assets/electricals1.jpeg";
 import w2 from "@/assets/Paintwork1.jpeg";
 import w3 from "@/assets/cleaning.jpeg";
-import w4 from "@/assets/plumbing-work-1.jpeg";
+import w4 from "@/assets/plumbing3.jpeg";
 import w5 from "@/assets/paint-work2.jpeg";
 import w6 from "@/assets/houses-painted.jpeg";
 import w7 from "@/assets/tiling.jpeg";
 import w8 from "@/assets/tiling1.jpeg";
 import w9 from "@/assets/tiling 2.jpeg";
+import w10 from "@/assets/plumbing4.jpeg";
+import w11 from "@/assets/plumbing5.jpeg";
+import w12 from "@/assets/service-electric.jpg";
 
 type Cat = "All" | "Electrical" | "Cleaning" | "Painting" | "Plumbing" | "Tiling";
 
@@ -27,12 +30,15 @@ const works = [
   { id: 7, src: w7, title: "Tiling 1", cat: "Tiling" as Cat, year: "2024", loc: "East Legon", span: "" },
   { id: 8, src: w8, title: "Tiling 2", cat: "Tiling" as Cat, year: "2024", loc: "Cantonments", span: "" },
   { id: 9, src: w9, title: "Tiling 3", cat: "Tiling" as Cat, year: "2024", loc: "Labone", span: "" },
+  { id: 10, src: w10, title: "Cantonments Pipe Installation", cat: "Plumbing" as Cat, year: "2024", loc: "Cantonments", span: "" },
+  { id: 11, src: w11, title: "Airport Residential Drainage", cat: "Plumbing" as Cat, year: "2024", loc: "Airport Residential", span: "" },
+  { id: 12, src: w12, title: "Osu Panel Upgrade", cat: "Electrical" as Cat, year: "2024", loc: "Osu", span: "" },
 ];
 
 const cats: Cat[] = ["All", "Electrical", "Cleaning", "Painting", "Plumbing", "Tiling"];
 
 const testimonials = [
-  { name: "Abena K.", role: "Designer · Accra Studio", quote: "They returned a chair to me that I'd given up on twice. It now sits in my own showroom." },
+  { name: "Abena K.", role: "Designer · Accra Studio", quote: "They rewired my entire house in three days. Professional from start to finish." },
   { name: "Kwame O.", role: "Homeowner · Osu", quote: "Quiet, careful, on time. The kind of craftsmanship you assume no longer exists." },
   { name: "Yaa A.", role: "Gallery Owner · East Legon", quote: "Their electrical work is clean, safe, and professionally done." },
   { name: "Akosua R.", role: "Architect · Airport Residential", quote: "I've sent them three of my most demanding projects. Three times, they exceeded my brief." },

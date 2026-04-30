@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Sparkles } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/our-works", label: "Our Works" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-  { to: "/request-rework", label: "Request Rework" },
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/our-works", label: "Our Works" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/request-rework", label: "Request Rework" },
 ];
+
+// Get current path for active state
+const getCurrentPath = () => window.location.pathname;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [pathname, setPathname] = useState(getCurrentPath());
   const { openModal } = useQuoteModal();
-  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -28,6 +30,11 @@ export default function Navbar() {
 
   useEffect(() => setOpen(false), [pathname]);
 
+  // Update pathname when location changes (for reloads)
+  useEffect(() => {
+    setPathname(getCurrentPath());
+  }, []);
+
   return (
     <header
       className={cn(
@@ -36,7 +43,7 @@ export default function Navbar() {
       )}
     >
       <div className="container flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <span className="grid place-items-center w-9 h-9 rounded-full bg-gradient-sage text-primary-foreground transition-transform duration-500 group-hover:rotate-12">
             <Sparkles className="w-4 h-4" />
           </span>
@@ -46,23 +53,20 @@ export default function Navbar() {
               Servicing Co.
             </span>
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden lg:flex items-center gap-9">
           {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === "/"}
-              className={({ isActive }) =>
-                cn(
-                  "story-link text-sm font-medium tracking-wide transition-colors",
-                  isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"
-                )
-              }
+            <a
+              key={l.href}
+              href={l.href}
+              className={cn(
+                "story-link text-sm font-medium tracking-wide transition-colors",
+                pathname === l.href ? "text-primary" : "text-foreground/80 hover:text-foreground"
+              )}
             >
               {l.label}
-            </NavLink>
+            </a>
           ))}
         </nav>
 
@@ -95,19 +99,16 @@ export default function Navbar() {
         <div className="glass border-y border-border px-6 py-8">
           <nav className="flex flex-col gap-5">
             {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.to === "/"}
-                className={({ isActive }) =>
-                  cn(
-                    "font-display text-2xl",
-                    isActive ? "text-primary" : "text-foreground"
-                  )
-                }
+              <a
+                key={l.href}
+                href={l.href}
+                className={cn(
+                  "font-display text-2xl",
+                  pathname === l.href ? "text-primary" : "text-foreground"
+                )}
               >
                 {l.label}
-              </NavLink>
+              </a>
             ))}
             <button
               onClick={openModal}

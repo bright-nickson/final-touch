@@ -6,7 +6,7 @@ import {
   ArrowRight, Zap, SprayCan, Brush, Quote, Star, Award, Leaf,
   ShieldCheck, Clock, Heart, Sparkles
 } from "lucide-react";
-import heroImg from "@/assets/hero-services.jpg";
+import heroImg from "@/assets/new-homepage.jpg";
 import sElectric from "@/assets/service-electric.jpg";
 import sCleaning from "@/assets/cleaning.jpeg";
 import sPainting from "@/assets/painting.jpeg";

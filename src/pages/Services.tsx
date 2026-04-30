@@ -109,13 +109,13 @@ const guarantees = [
   { i: Star, t: "12-month care", d: "Free touch-up within a year of completion." },
 ];
 
-const materials = [
-  { name: "Linseed-based oils", origin: "Brittany, France" },
-  { name: "Hand-mixed casein paint", origin: "Studio-formulated" },
-  { name: "Hide glues & shellacs", origin: "Sourced locally" },
-  { name: "Tadelakt lime plaster", origin: "Marrakech, Morocco" },
-  { name: "Beeswax & carnauba", origin: "Cold-blended in studio" },
-  { name: "Linen & wool fibres", origin: "Belgian mills" },
+const standards = [
+  { name: "Licensed & Insured", detail: "Fully certified team" },
+  { name: "Quality Parts", detail: "Grade-A suppliers" },
+  { name: "Safety First", detail: "Code-compliant work" },
+  { name: "Clean Finish", detail: "Site left spotless" },
+  { name: "Warranty Included", detail: "12-month guarantee" },
+  { name: "Local Support", detail: "Accra-based team" },
 ];
 
 const compare = [
@@ -284,27 +284,27 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Materials */}
+      {/* Quality Standards */}
       <section className="py-24 bg-foreground text-background relative overflow-hidden">
         <div className="absolute -bottom-32 -right-20 w-[500px] h-[500px] rounded-full bg-primary/25 blur-3xl" />
         <div className="container relative z-10 grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
-            <Eyebrow className="text-background/70">Materials</Eyebrow>
+            <Eyebrow className="text-background/70">Our Standards</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl mt-5 leading-tight">
-              A small library of
-              <em className="block text-primary-glow">trusted materials.</em>
+              Professional service,
+              <em className="block text-primary-glow">guaranteed quality.</em>
             </h2>
             <p className="text-background/75 mt-6 leading-relaxed">
-              We've kept the same suppliers for years. Each material is chosen
-              for honesty of finish, longevity, and a kind footprint.
+              Every project meets strict quality standards. From electrical safety 
+              to spotless finishes — we deliver work you can trust.
             </p>
           </div>
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-x-8 reveal">
-            {materials.map((m, i) => (
-              <div key={m.name} className={`flex justify-between items-baseline py-5 ${i < materials.length - 2 ? "border-b border-background/10" : ""}`}>
-                <p className="font-display text-lg">{m.name}</p>
-                <p className="text-xs tracking-[0.2em] uppercase text-background/60 flex items-center gap-2">
-                  <MapPin className="w-3 h-3" /> {m.origin}
+            {standards.map((s, i) => (
+              <div key={s.name} className={`flex justify-between items-baseline py-5 ${i < standards.length - 2 ? "border-b border-background/10" : ""}`}>
+                <p className="font-display text-lg">{s.name}</p>
+                <p className="text-xs tracking-[0.2em] uppercase text-background/60">
+                  {s.detail}
                 </p>
               </div>
             ))}
@@ -360,20 +360,42 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Video section */}
+      {/* Video sections */}
       <section className="container py-28">
-        <div className="reveal relative aspect-[16/8] rounded-3xl overflow-hidden">
-          <video
-            src="/plumbing-showcase.mp4"
-            poster={sPlumbing}
-            controls
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            Your browser does not support the video tag.
-          </video>
-          <p className="text-xs tracking-[0.32em] uppercase text-soft">Plumbing Services</p>
-          <p className="font-display text-3xl md:text-4xl mt-2 max-w-xl">See our plumbing work in action.</p>
+        <SectionHeading eyebrow="Our Work" title="See us in" italic="action." />
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
+          {/* Plumbing video */}
+          <div className="reveal relative aspect-[16/9] rounded-2xl overflow-hidden">
+            <video
+              src="/plumbing-showcase.mp4"
+              poster={sPlumbing}
+              controls
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+              <p className="text-xs tracking-[0.32em] uppercase text-white/70">Plumbing Services</p>
+              <p className="font-display text-xl text-white mt-1">Expert pipe work and installations.</p>
+            </div>
+          </div>
+          {/* Tiling video */}
+          <div className="reveal relative aspect-[16/9] rounded-2xl overflow-hidden" style={{ transitionDelay: '150ms' }}>
+            <video
+              src="/new-video.mp4"
+              poster={sTiling}
+              controls
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+              <p className="text-xs tracking-[0.32em] uppercase text-white/70">Tiling Services</p>
+              <p className="font-display text-xl text-white mt-1">Beautiful tile finishes that last.</p>
+            </div>
+          </div>
         </div>
       </section>
 

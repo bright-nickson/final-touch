@@ -50,11 +50,33 @@ export default function QuoteModal() {
   const next = () => setStep((s) => Math.min(s + 1, 2));
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Quote request sent", { description: "We'll be in touch within one business day." });
-    closeModal();
-    setData({ service: "", description: "", name: "", email: "", phone: "", contactPref: "email" });
+    const formData = new FormData();
+    formData.append("service", data.service);
+    formData.append("description", data.description);
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone || "Not provided");
+    formData.append("contactPref", data.contactPref);
+    formData.append("estimate", estimate);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/xgodwqjq", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData,
+      });
+      if (response.ok) {
+        toast.success("Quote request sent", { description: "We'll be in touch within one business day." });
+        closeModal();
+        setData({ service: "", description: "", name: "", email: "", phone: "", contactPref: "email" });
+      } else {
+        toast.error("Failed to send", { description: "Please try again." });
+      }
+    } catch {
+      toast.error("Failed to send", { description: "Please try again." });
+    }
   };
 
   return (

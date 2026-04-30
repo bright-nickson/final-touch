@@ -50,10 +50,23 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    toast.success("Message sent", { description: "We'll get back to you within 24 hours." });
+    try {
+      const response = await fetch("https://formspree.io/f/xgodwqjq", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(e.target as HTMLFormElement),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+        toast.success("Message sent", { description: "We'll get back to you within 24 hours." });
+      } else {
+        toast.error("Failed to send", { description: "Please try again." });
+      }
+    } catch {
+      toast.error("Failed to send", { description: "Please try again." });
+    }
   };
 
   return (
@@ -145,7 +158,7 @@ export default function Contact() {
                     Tell us what you need.
                   </h3>
 
-                  <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                  <form onSubmit={handleSubmit} className="mt-8 space-y-6" action="https://formspree.io/f/xgodwqjq" method="POST">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="float-field">
                         <input
